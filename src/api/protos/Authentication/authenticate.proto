@@ -1,0 +1,28 @@
+﻿syntax = "proto3";
+
+import "google/api/annotations.proto";
+
+option csharp_namespace = "Soit.Authentication.Protos";
+
+package Soit.Authentication;
+
+message LoginReply {
+  int64 user_id = 1;
+  string legal_name = 2;
+  string token = 3;
+  int64 expire_at = 4;
+}
+
+message LoginRequest {
+  string user_name = 1;
+  string cipher = 2;
+}
+
+service AuthenticateService {
+  rpc Login(LoginRequest) returns (LoginReply){
+    option (google.api.http) = {
+      post: "/authenticate/login",
+      body: "*"
+    };
+  }
+}

@@ -1,0 +1,319 @@
+.flex-row {
+  display: flex;
+}
+
+.flex-row-r {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-column-r {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.just-around {
+  justify-content: space-around;
+}
+
+.just-between {
+  justify-content: space-between;
+}
+
+.just-start {
+  justify-content: flex-start;
+}
+
+.just-end {
+  justify-content: flex-end;
+}
+
+.just-center {
+  justify-content: center;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.align-end {
+  align-items: flex-end;
+}
+
+.align-start {
+  align-items: flex-start;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.flex-2 {
+  flex: 2;
+}
+
+.flex-3 {
+  flex: 3;
+}
+
+.flex-4 {
+  flex: 4;
+}
+
+.flex-5 {
+  flex: 5;
+}
+
+.flex-6 {
+  flex: 6;
+}
+
+.h100 {
+  height: 100%;
+}
+
+.w100 {
+  width: 100%;
+}
+
+.no-wrap {
+  white-space: nowrap;
+}
+
+.cur-pointer {
+  cursor: pointer;
+}
+
+.mar10 {
+  margin: 10px;
+}
+
+.mar20 {
+  margin: 20px;
+}
+
+.ml10 {
+  margin-left: 10px;
+}
+
+.ml20 {
+  margin-left: 20px;
+}
+
+.mt10 {
+  margin-top: 10px;
+}
+
+.mt20 {
+  margin-top: 20px;
+}
+
+.mr20 {
+  margin-right: 20px;
+}
+
+.mr10 {
+  margin-right: 10px;
+}
+
+.mb20 {
+  margin-bottom: 20px;
+}
+
+.mb0 {
+  margin-bottom: 0;
+}
+
+.mb10 {
+  margin-bottom: 10px;
+}
+
+.pad10 {
+  padding: 10px;
+}
+
+.pad20 {
+  padding: 20px;
+}
+
+.pt10 {
+  padding-top: 10px;
+}
+
+.pt20 {
+  padding-top: 20px;
+}
+
+.pb10 {
+  padding-bottom: 10px;
+}
+
+.pb20 {
+  padding-bottom: 20px;
+}
+
+.pl0 {
+  padding-left: 0;
+}
+
+.pl10 {
+  padding-left: 10px;
+}
+
+.pl20 {
+  padding-left: 20px;
+}
+
+.pr10 {
+  padding-right: 10px;
+}
+
+.pr20 {
+  padding-right: 20px;
+}
+
+.over-hidden {
+  overflow: hidden;
+}
+
+.over-auto {
+  overflow: auto;
+}
+
+.over-x-h {
+  overflow-x: hidden;
+}
+
+.over-y {
+  overflow-y: scroll;
+}
+
+/*.half-form {*/
+/*  width: 50%;*/
+/*}*/
+.ant-form.half-form {
+  display: flex;
+  flex-wrap: wrap;
+}
+.ant-form.half-form > .ant-form-item {
+  width: 50%;
+}
+
+.third-form {
+  display: inline-block;
+  width: 33.33%;
+}
+
+.d-inline-block {
+  display: inline-block;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-wrap {
+  height: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.flex-shrink-0 {
+  flex-shrink: 0;
+}
+
+.flex-grow-0 {
+  flex-grow: 0;
+}
+
+.font16 {
+  font-size: 1.6rem;
+}
+
+.font14 {
+  font-size: 1.4rem;
+}
+
+.font18 {
+  font-size: 1.8rem;
+}
+
+.font20 {
+  font-size: 2rem;
+}
+
+.position-relative {
+  position: relative;
+}
+
+.position-fixed {
+  position: fixed;
+}
+
+.position-absolute {
+  position: absolute;
+}
+
+.bkw {
+  background: white;
+}
+
+.bkb {
+  background: black;
+}
+
+.color-white {
+  color: white;
+}
+
+.color-danger {
+  color: #ff4d4f;
+}
+
+.color-safe {
+  color: #67c23a;
+}
+
+.color-black {
+  color: black;
+}
+
+.borderR5 {
+  border-radius: 5px;
+}
+
+.borderR10 {
+  border-radius: 10px;
+}
+
+.border-bottom {
+  border-bottom: 1px solid #aaa;
+}
+
+.img-suite {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.file-suite {
+  font-size: 60px;
+}
+
+.file-ope {
+  width: 100%;
+  height: 40px;
+}

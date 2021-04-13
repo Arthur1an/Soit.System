@@ -1,0 +1,98 @@
+﻿syntax = "proto3";
+
+import "google/api/annotations.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/wrappers.proto";
+import "protos/infrastructure.proto";
+
+option csharp_namespace = "Soit.Authentication.Protos";
+
+package Soit.Authentication;
+
+message CreateOrganizationRequest {
+  google.protobuf.Int64Value parent_id = 1;
+  string name = 2;
+  string description = 3;
+  repeated int64 user_ids = 4;
+}
+
+message FindOrganizationReply {
+  int64 id = 1;
+  Soit.Infrastructure.NamedIdentify parent = 2;
+  string name = 3;
+  string description = 4;
+  message User {
+    int64 id = 1;
+    string name = 2;
+    string legal_name = 3;
+    Soit.Infrastructure.EntityStates state = 4;
+  }
+  repeated User users = 5;
+}
+
+message GetOrganizationTreeReply {
+  repeated OrganizationTreeNode nodes = 1;
+}
+
+message OrganizationTreeNode {
+  int64 id = 1;
+  Soit.Infrastructure.NamedIdentify parent = 2;
+  string name = 3;
+  string description = 4;
+  repeated OrganizationTreeNode children = 5;
+}
+
+message UpdateOrganizationRequest {
+  int64 id = 1;
+  google.protobuf.Int64Value parent_id = 2;
+  string name = 3;
+  string description = 4;
+  repeated int64 user_ids = 5;
+}
+
+message UpdateOrganizationUsersRequest {
+  int64 id = 1;
+  repeated int64 user_ids = 2;
+}
+
+service OrganizationService {
+  rpc Create(CreateOrganizationRequest) returns (Soit.Infrastructure.Identify){
+    option (google.api.http) = {
+      put: "/organizations",
+      body: "*"
+    };
+  }
+
+  rpc Find(Soit.Infrastructure.Identify) returns (FindOrganizationReply){
+    option (google.api.http) = {
+      get: "/organizations/{id}"
+    };
+  }
+
+  rpc GetTree(google.protobuf.Empty) returns (GetOrganizationTreeReply){
+    option (google.api.http) = {
+      get: "/organizations"
+    };
+  }
+
+  rpc Remove(Soit.Infrastructure.IdentifyArray) returns (google.protobuf.Empty){
+    option (google.api.http) = {
+      delete: "/organizations",
+      body: "*"
+    };
+  }
+
+  rpc Update(UpdateOrganizationRequest) returns (google.protobuf.Empty){
+    option (google.api.http) = {
+      patch: "/organizations",
+      body: "*"
+    };
+  }
+
+  rpc UpdateUsers(UpdateOrganizationUsersRequest) returns (google.protobuf.Empty){
+    option (google.api.http) = {
+      patch: "/organizations/users",
+      body: "*"
+    };
+  }
+}

@@ -1,0 +1,65 @@
+﻿syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/timestamp.proto";
+import "protos/infrastructure.proto";
+
+option csharp_namespace = "Soit.System.Protos";
+
+package Soit.System;
+
+service AccountService{
+  rpc Create (CreateAccountRequest) returns (string);
+  rpc Remove (Soit.System.IdentifyArray) returns (google.protobuf.Empty);
+  rpc Update (UpdateAccountRequest) returns (google.protobuf.Empty);
+  rpc Find (Soit.System.Identify) returns (FindAccountReply);
+  rpc Query(QueryAccountRequest) returns (QueryAccountReply);
+}
+
+message CreateAccountRequest
+{
+  string name = 1;
+  string cipher = 2;
+  string legal_name = 3;
+  string description = 4;
+  string mobile = 5;
+  string email = 6;
+}
+
+message UpdateAccountRequest
+{ 
+  int64 id = 1;
+  string name = 2;
+  string cipher = 3;
+  string legal_name = 4;
+  string description = 5;
+  string mobile = 6;
+  string email = 7;
+}
+
+message FindAccountReply
+{
+  int64 id=1;
+  string name = 2;
+  string cipher = 3;
+  string legal_name = 4;
+  string description = 5;
+  string mobile = 6;
+  string email = 7;
+}
+
+message QueryAccountRequest
+{
+  string contains = 1;
+  Soit.System.OrderRequest order_request = 2;
+  Soit.System.PageRequest page_request = 3;
+}
+
+message QueryAccountReply
+{
+  Soit.System.PageResult page_result = 1;
+  repeated FindAccountReply items = 2;
+}
+
+

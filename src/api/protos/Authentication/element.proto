@@ -1,0 +1,67 @@
+﻿syntax = "proto3";
+import "google/api/annotations.proto";
+import "google/protobuf/empty.proto";
+import "protos/infrastructure.proto";
+
+option csharp_namespace = "Soit.Authentication.Protos";
+
+package Soit.Authentication;
+
+message CreateElementRequest {
+  int64 page_id = 1;
+  string key = 2;
+  string name = 3;
+  Soit.Infrastructure.ElementTypes type = 4;
+  string style = 5;
+  string icon = 6;
+}
+
+message FindElementReply {
+  int64 id = 1;
+  Soit.Infrastructure.NamedIdentify page = 2;
+  string key = 3;
+  string name = 4;
+  Soit.Infrastructure.ElementTypes type = 5;
+  string style = 6;
+  string icon = 7;
+}
+
+message UpdateElementRequest {
+  int64 id = 1;
+  int64 page_id = 2;
+  string key = 3;
+  string name = 4;
+  Soit.Infrastructure.ElementTypes type = 5;
+  string style = 6;
+  string icon = 7;
+}
+
+service ElementService {
+  rpc Create(CreateElementRequest) returns (Soit.Infrastructure.Identify){
+    option (google.api.http) = {
+      put: "/elements",
+      body: "*"
+    };
+  }
+
+  rpc Find(Soit.Infrastructure.Identify) returns (FindElementReply){
+    option (google.api.http) = {
+      get: "/elements/{id}"
+    };
+  }
+
+  rpc Remove(Soit.Infrastructure.IdentifyArray) returns (google.protobuf.Empty){
+    option (google.api.http) = {
+      delete: "/elements",
+      body: "*"
+    };
+  }
+
+  rpc Update(UpdateElementRequest) returns (google.protobuf.Empty){
+    option (google.api.http) = {
+      patch: "/elements",
+      body: "*"
+    };
+  }
+}
+

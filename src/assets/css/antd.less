@@ -1,0 +1,56 @@
+#app {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.ant-tabs-bar {
+  margin-bottom: 0;
+}
+
+.modal-icon-warning {
+  color: #faad14 !important;
+}
+
+.modal-icon-success {
+  color: #52c41a !important;
+}
+
+.modal-icon-error {
+  color: #f5222d !important;
+}
+
+.modal-icon-info {
+  color: #1890ff !important;
+}
+
+.ant-menu-dark,
+.ant-menu-submenu,
+.ant-menu-submenu > .ant-menu {
+  background-color: #2c3039 !important;
+}
+
+.ant-menu-dark .ant-menu-inline.ant-menu-sub {
+  box-shadow: unset !important;
+}
+
+@collapsedWidth: 60px;
+
+.ant-layout-sider-collapsed {
+  width: @collapsedWidth !important;
+  max-width: @collapsedWidth !important;
+  min-width: @collapsedWidth !important;
+  flex: 0 0 @collapsedWidth !important;
+
+  .ant-menu-submenu-title {
+    display: flex !important;
+    justify-content: center !important;
+  }
+}
+
+.ant-menu-inline-collapsed {
+  width: @collapsedWidth !important;
+}
+
+.half-form > .ant-form-item-control-wrapper {
+  display: inline-block;
+}

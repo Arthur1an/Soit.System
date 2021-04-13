@@ -1,0 +1,79 @@
+﻿syntax = "proto3";
+
+import "google/api/annotations.proto";
+import "google/protobuf/empty.proto";
+import "protos/infrastructure.proto";
+
+option csharp_namespace = "Soit.Authentication.Protos";
+
+package Soit.Authentication;
+
+message CreatePageRequest {
+  int64 module_id = 1;
+  string key = 2;
+  string name = 3;
+  int32 no = 4;
+  string icon = 5;
+  string route = 6;
+  bool show_in_menu = 7;
+}
+
+message FindPageReply {
+  int64 id = 1;
+  Soit.Infrastructure.NamedIdentify module = 2;
+  string key = 3;
+  string name = 4;
+  int32 no = 5;
+  string icon = 6;
+  string route = 7;
+  bool show_in_menu = 8;
+  message Element {
+    int64 id = 1;
+    string key = 2;
+    string name = 3;
+    Soit.Infrastructure.ElementTypes type = 4;
+    string style = 5;
+    string icon = 6;
+  }
+  repeated Element elements = 9;
+}
+
+message UpdatePageRequest {
+  int64 id = 1;
+  int64 module_id = 2;
+  string key = 3;
+  string name = 4;
+  int32 no = 5;
+  string icon = 6;
+  string route = 7;
+  bool show_in_menu = 8;
+}
+
+service PageService {
+  rpc Create(CreatePageRequest) returns (Soit.Infrastructure.Identify){
+    option (google.api.http) = {
+      put: "/pages",
+      body: "*"
+    };
+  }
+
+  rpc Find(Soit.Infrastructure.Identify) returns (FindPageReply){
+    option (google.api.http) = {
+      get: "/pages/{id}"
+    };
+  }
+
+  rpc Remove(Soit.Infrastructure.IdentifyArray) returns (google.protobuf.Empty){
+    option (google.api.http) = {
+      delete: "/pages",
+      body: "*"
+    };
+  }
+
+  rpc Update(UpdatePageRequest) returns (google.protobuf.Empty){
+    option (google.api.http) = {
+      patch: "/pages",
+      body: "*"
+    };
+  }
+}

@@ -1,0 +1,78 @@
+﻿syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/timestamp.proto";
+import "protos/infrastructure.proto";
+
+option csharp_namespace = "Soit.System.Protos";
+
+package Soit.System;
+
+enum State{
+  NotUsed=0;
+  Used=1;
+  Eliminate=2;
+}
+
+service EquipmentService{
+  rpc Create (CreateEquipmentRequest) returns (google.protobuf.StringValue);
+  rpc Remove (Soit.System.IdentifyArray) returns (google.protobuf.Empty);
+  rpc Update (UpdateEquipmentRequest) returns (google.protobuf.Empty);
+  rpc Find (Soit.System.Identify) returns (FindEquipmentReply);
+  rpc Query(QueryEquipmentRequest) returns (QueryEquipmentReply);
+}
+
+message CreateEquipmentRequest
+{
+  string type=1;
+  string number=2;
+  string brand=3;
+  string model_name=4;
+  string memory=5;
+  int64 Purchase_date=6;
+  int64 Eliminate_date=7;
+  State state=8;
+  int64 user_id=9;
+}
+
+message UpdateEquipmentRequest
+{
+  int64 id=1;
+  string type=2;
+  string number=3;
+  string brand=4;
+  string model_name=5;
+  string memory=6;
+  int64 Purchase_date=7;
+  int64 Eliminate_date=8;
+  State state=9;
+  int64 user_id=10;
+}
+
+message FindEquipmentReply
+{
+  int64 id=1;
+  string type=2;
+  string number=3;
+  string brand=4;
+  string model_name=5;
+  string memory=6;
+  int64 Purchase_date=7;
+  int64 Eliminate_date=8;
+  State state=9;
+  int64 user_id=10;
+}
+
+message QueryEquipmentRequest
+{
+  string contains = 1;
+  Soit.System.OrderRequest order_request = 2;
+  Soit.System.PageRequest page_request = 3;  
+}
+
+message QueryEquipmentReply
+{
+  Soit.System.PageResult page_result = 1;
+  repeated FindEquipmentReply items = 2;
+}
