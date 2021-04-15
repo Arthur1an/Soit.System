@@ -48,7 +48,7 @@
         <AButton type="link" @click="() => remove(record)">分配页面</AButton>
       </template>
     </ATable>
-    <AccountEdit ref="editRef" @reload="query" />
+    <EquipmentEdit ref="editRef" @reload="query" />
   </div>
     </div>
 </template>
