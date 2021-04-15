@@ -83,9 +83,11 @@ export default defineComponent({
     const selectedUsers = ref<FindUserReply.AsObject[]>([]);
     const columns = [
       { title: "姓名", dataIndex: "name" },
-      { title: "职位", dataIndex: "UsersName" },
-      { title: "电话", dataIndex: "description" },
-      { title: "邮箱", dataIndex: "state" },
+      { title: "入职日期", dataIndex: "entryDate" },
+      { title: "到期时间", dataIndex: "departureDate" },
+      { title: "电话", dataIndex: "mobile" },
+      { title: "身份证", dataIndex: "idcard" },
+      { title: "职位", dataIndex: "job" },
       { title: "操作", slots: { customRender: "action" } },
     ];
 
@@ -109,6 +111,8 @@ export default defineComponent({
           pageSize: 10,
         },
       });
+      dataSource.value = reply.itemsList;
+      console.log(reply.itemsList);
     }
 
     // 删除
