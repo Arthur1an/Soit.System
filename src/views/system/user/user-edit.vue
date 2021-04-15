@@ -19,19 +19,19 @@
       <AFormItem name="name" label="角色名">
         <a-input :disabled="Boolean(UserInfo.id)" v-model:value="UserInfo.name" />
       </AFormItem>
-      <AFormItem name="entryDate" label="entryDate">
+      <AFormItem name="entryDate" label="入职日期">
         <a-input v-model:value="UserInfo.entryDate" />
       </AFormItem>
-      <AFormItem name="departureDate" label="departureDate">
+      <AFormItem name="departureDate" label="合同到期时间">
         <a-input v-model:value="UserInfo.departureDate" />
       </AFormItem>
-       <AFormItem name="mobile" label="mobile">
+       <AFormItem name="mobile" label="电话">
         <a-input v-model:value="UserInfo.mobile" />
       </AFormItem>
-       <AFormItem name="idcard" label="idcard">
+       <AFormItem name="idcard" label="身份证">
         <a-input  v-model:value="UserInfo.idcard" />
       </AFormItem>
-       <AFormItem name="job" label="job">
+       <AFormItem name="job" label="职位">
         <a-input  v-model:value="UserInfo.job" />
       </AFormItem>
      
